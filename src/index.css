@@ -1,6 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, 
+body {
+    height: 100%;
+}
+
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
+    margin: 0;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background-repeat: no-repeat;
 }
 
 ol, ul {
@@ -18,10 +32,10 @@ ol, ul {
 }
 
 .square {
-    background: #fff;
+    background: ivory;
     border: 1px solid #999;
     float: left;
-    font-size: 24px;
+    font-size: 3em;
     font-weight: bold;
     line-height: 34px;
     height: 120px;
@@ -44,8 +58,32 @@ ol, ul {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .game-info {
     margin-left: 20px;
+}
+
+.board-info {
+  background: ivory;
+  border: 1px solid aliceblue;
+  outline: none;
+  padding: 3px;
+  margin-bottom: 3px;
+}
+
+.board-info:hover {
+  outline: 1.5px solid tomato;
+  transition: 0.3s;
+}
+
+.status-info {
+  font-weight: 700;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-bottom: 10px;
+  font-size: 25px;
 }

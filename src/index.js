@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { useState } from 'react';
 import './index.css';
 
 function Square(props) {
+    console.log(props.value);
+    const [isActive, setActive] = useState(false);
+
+    const toggleClass = () => {
+        setActive(!isActive);
+    };
     return (
-        <button className='square' onClick={props.onClick}>
-            {props.value}
-        </button>
+        <div className='square' onClick={props.onClick}>
+            <span
+                className={
+                    isActive ? `scale-up-center` : null
+                }
+                onClick={toggleClass}
+            >
+                {props.value}
+            </span>
+        </div>
     );
 }
 

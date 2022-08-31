@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './index.css';
 
 function Square(props) {
-    console.log(props.value);
+    // console.log(props.value);
     const [isActive, setActive] = useState(false);
 
     const toggleClass = () => {
@@ -72,6 +72,18 @@ class Game extends React.Component {
     }
 
     handleClick(i) {
+        const locations = [
+            [1, 1],
+            [2, 1],
+            [3, 1],
+            [1, 2],
+            [2, 2],
+            [3, 2],
+            [1, 3],
+            [2, 3],
+            [3, 3],
+        ];
+
         const history = this.state.history.slice(
             0,
             this.state.stepNumber + 1
@@ -86,6 +98,7 @@ class Game extends React.Component {
             history: history.concat([
                 {
                     squares: squares,
+                    location: locations[i],
                 },
             ]),
             stepNumber: history.length,
@@ -104,15 +117,15 @@ class Game extends React.Component {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
+        // console.log(current);
 
         const moves = history.map((step, move) => {
             const desc = move
-                ? 'Go to move #' + move
-                : 'Go to game start';
+                ? `Go to move #${move}, @position: ${history[move].location}`
+                : `Go to game start`;
             return (
                 <li key={move}>
                     <button
-                        className='board-info'
                         onClick={() => this.jumpTo(move)}
                     >
                         {desc}
